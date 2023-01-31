@@ -1,0 +1,21 @@
+.login__container{
+
+
+
+    box-shadow: 8px 10px #c7c7c7;
+    border-radius: 5px;
+
+    width: 40%;
+
+    h2,p{
+        margin: 5px;
+        line-height: 1.5;
+        letter-spacing: 2px;
+    }
+
+
+    .buttons-container{
+        margin: 5px 0;
+        display: flex;
+    }
+}
