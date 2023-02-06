@@ -6,6 +6,7 @@ const BUTTON_TYPE_CLASSES = {
   facebook: "facebook",
   github: "github",
   signup: "signup",
+  login: "login",
 };
 
 const Button = ({ children, buttonType, ...otherProps }) => {

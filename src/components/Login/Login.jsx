@@ -28,6 +28,13 @@ const Login = () => {
   };
 
 
+  const letTheInitializeGooglePopupButton = async () => {
+
+    const {user} = await googlePopUp()
+
+    const userDocRef =  await createUserDocFromAuth(user);
+    console.log(userDocRef);
+  }
 
 
 
@@ -73,14 +80,10 @@ const Login = () => {
             <span>{<BsGoogle />}</span> Google
           </Button>
 
-          <Button type="submit" buttonType="github">
-            <span> {<AiFillGithub />} </span>
-            GitHub
+          <Button type="submit" buttonType="login">
+            Sign In
           </Button>
 
-          <Button type="submit" buttonType="facebook">
-            <span>{<AiFillFacebook />}</span> Facebook
-          </Button>
         </div>
       </form>
     </div>
