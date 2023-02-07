@@ -7,7 +7,7 @@ import { AiFillFacebook } from "react-icons/ai";
 import './login.styles.scss';
 
 // google- popup
-import { createUserDocFromAuth, googlePopUp } from "../utils/firebase";
+import { createUserDocumentFromAuth, signInWithGooglePopup } from "../utils/firebase";
 
 
 const initialState = {
@@ -20,7 +20,7 @@ const Login = () => {
 
   const { email, password } = state;
 
-  console.log(state);
+  // console.log(state);
 
   const onSubmitHandler = (event) => {
     event.preventDefault();
@@ -30,9 +30,9 @@ const Login = () => {
 
   const letTheInitializeGooglePopupButton = async () => {
 
-    const {user} = await googlePopUp()
+    const {user} = await signInWithGooglePopup()
 
-    const userDocRef =  await createUserDocFromAuth(user);
+    const userDocRef =  await createUserDocumentFromAuth(user);
     console.log(userDocRef);
   }
 
