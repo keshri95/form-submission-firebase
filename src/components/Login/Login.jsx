@@ -7,7 +7,7 @@ import { AiFillFacebook } from "react-icons/ai";
 import './login.styles.scss';
 
 // google- popup
-import { createUserDocumentFromAuth, signInWithGooglePopup } from "../utils/firebase";
+import { createUserDocumentFromAuth, signInWithGooglePopup, signInAuthUserWithEmailAndPassword } from "../utils/firebase";
 
 
 const initialState = {
@@ -21,9 +21,33 @@ const Login = () => {
   const { email, password } = state;
 
   // console.log(state);
+  const crearFormFields = () => {
+    setState(initialState)
+  }
 
-  const onSubmitHandler = (event) => {
+  const onSubmitHandler = async (event) => {
     event.preventDefault();
+
+    try {
+      const response = await signInAuthUserWithEmailAndPassword(email, password);
+      console.log(response);
+      crearFormFields();
+    } catch(error){
+
+      switch(error.code){
+        case "auth/user-not-found":
+          alert('incorect username');
+          break;
+
+        case "auth/wrong-password":
+          alert("incorrect password");
+          break;
+
+        default:
+         console.log(error);
+      }
+
+    }
 
   };
 
@@ -52,7 +76,7 @@ const Login = () => {
 
   return (
     <div className="login__container">
-      <h2>I alredy have an account ?</h2>
+      <h2>I alredy have an account</h2>
       <p>Sing in with your email and password !</p>
       <form onSubmit={onSubmitHandler}>
         <FormInput

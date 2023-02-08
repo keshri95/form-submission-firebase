@@ -1,14 +1,14 @@
-import Button from "./components/Button/Button"
+import Login from "./components/Login/Login";
+import SignUp from "./components/Sign Up/SignUp";
 
+import './index.styles.scss';
 function App() {
-
   return (
-    <div>
-      <p>firebase</p>
-      <Button />
+    <div className="container">
+      <Login />
+      <SignUp />
     </div>
-
-  )
+  );
 }
 
-export default App
+export default App;
